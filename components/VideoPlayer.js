@@ -1,17 +1,24 @@
+"use client";
+
 import { useEffect, useRef } from "react";
 import Hls from "hls.js";
 
-export default function VideoPlayer({ mp4 = "/demo-video.mp4", hls = "/demo-video.m3u8", poster = "/assets/poster.jpg" }) {
+export default function VideoPlayer({
+  mp4 = "/demo-video.mp4",
+  hls = "/demo-video.m3u8",
+  poster = "/assets/poster.jpg",
+  className = ""
+}) {
   const ref = useRef(null);
 
   useEffect(() => {
     const video = ref.current;
     if (!video) return;
 
-    // prefer HLS stream if provided
+    // Prefer HLS if available
     if (hls) {
       if (Hls.isSupported()) {
-        const hlsObj = new Hls();
+        const hlsObj = new Hls({ maxBufferLength: 30 });
         hlsObj.loadSource(hls);
         hlsObj.attachMedia(video);
         return () => hlsObj.destroy();
@@ -21,16 +28,17 @@ export default function VideoPlayer({ mp4 = "/demo-video.mp4", hls = "/demo-vide
       }
     }
 
+    // fallback: MP4
     if (mp4) {
       video.src = mp4;
     }
   }, [mp4, hls]);
 
   return (
-    <div className="w-full max-w-[920px] rounded-xl overflow-hidden shadow-xl">
+    <div className={`rounded-xl overflow-hidden bg-black shadow-xl ${className}`}>
       <video
         ref={ref}
-        className="w-full h-auto bg-black"
+        className="w-full h-auto"
         controls
         playsInline
         preload="metadata"
