@@ -1,0 +1,1 @@
+export async function POST(req){return new Response(JSON.stringify({status:'ok',mode:'pro'}));}
