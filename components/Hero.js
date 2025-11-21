@@ -1,0 +1,1 @@
+export default function Hero(){return(<section className='p-10 text-center'><h1 className='text-4xl font-bold'>VYRON — Future In Motion</h1><p className='opacity-70 mt-4'>AI Video Engine / Free & Pro Platform</p></section>);}
