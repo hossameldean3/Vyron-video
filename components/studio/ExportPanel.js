@@ -1,31 +1,22 @@
-"use client";
 
-import AdSlot from "../AdSlot";
+import { useState } from 'react'
 
-export default function ExportPanel({ tool }) {
+export default function ExportPanel(){
+  const [format, setFormat] = useState('mp4')
   return (
-    <section className="bg-white/5 p-5 rounded-xl border border-white/10">
-      <h3 className="text-xl text-white font-semibold mb-3">Export</h3>
-
-      {tool && (
-        <p className="text-sm text-white/70 mb-3">
-          Selected Tool: <span className="text-neon">{tool}</span>
-        </p>
-      )}
-
-      <div className="space-y-4">
-        <button className="px-5 py-3 bg-gradient-to-r from-cyan-400 to-blue-600 rounded-lg text-black font-bold w-full">
-          Export Free (with Ads)
-        </button>
-
-        <button className="px-5 py-3 bg-white/10 rounded-lg text-white border border-white/20 w-full hover:bg-white/20 transition">
-          Export PRO — No Ads, 4K Quality
-        </button>
-
-        <div className="mt-4">
-          <AdSlot id="export-ad" />
-        </div>
+    <div className='card'>
+      <h4 className='font-semibold mb-2'>Export</h4>
+      <label className='block mb-2 text-sm'>Format</label>
+      <select value={format} onChange={(e)=>setFormat(e.target.value)} className='w-full p-2 rounded bg-black/20'>
+        <option value='mp4'>MP4</option>
+        <option value='webm'>WebM</option>
+        <option value='hls'>HLS (.m3u8)</option>
+      </select>
+      <div className='mt-3 flex gap-2'>
+        <button className='flex-1 px-3 py-2 rounded bg-green-600'>Export (Free - Ad)</button>
+        <button className='flex-1 px-3 py-2 rounded border'>Export (Pro)</button>
       </div>
-    </section>
-  );
+      <div className='mt-4 text-xs text-gray-300'>Free exports show interstitial ad or rewarded ad during encoding.</div>
+    </div>
+  )
 }
