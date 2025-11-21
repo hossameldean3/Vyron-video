@@ -1,0 +1,1 @@
+export const metadata={title:'VYRON'};export default function Root({children}){return(<html><body className='bg-black text-white'>{children}</body></html>);}
