@@ -1,6 +1,6 @@
-/** Next config - Enterprise starter **/
-module.exports = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
-  experimental: { appDir: false }
-};
+  experimental: { appDir: true },
+}
+module.exports = nextConfig
