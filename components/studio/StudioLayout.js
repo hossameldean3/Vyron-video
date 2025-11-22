@@ -1,2 +1,8 @@
-import EditorSidebar from './EditorSidebar'; import StudioPlayer from './StudioPlayer'; import ExportPanel from './ExportPanel';
-export default function StudioLayout(){ return (<div><div className='container'><div className='grid md:grid-cols-4 gap-6'><aside className='md:col-span-1'><EditorSidebar/></aside><section className='md:col-span-2'><StudioPlayer/></section><aside className='md:col-span-1'><ExportPanel/></aside></div></div></div>) }
+export default function StudioLayout({ children }) {
+  return (
+    <div className="grid grid-cols-4 gap-6">
+      <aside className="col-span-1">Sidebar</aside>
+      <main className="col-span-3">{children}</main>
+    </div>
+  )
+}

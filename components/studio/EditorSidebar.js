@@ -1,1 +1,1 @@
-export default function EditorSidebar(){ return (<div className='card'><h4 className='font-semibold'>Tools</h4><ul className='mt-3 text-sm'><li>Free Text→Video</li><li>Upscale (WebGPU)</li><li>Templates</li></ul></div>) }
+export default function EditorSidebar(){ return <div>Editor tools</div> }

@@ -1,1 +1,8 @@
-export default function ExportPanel(){ return (<div className='card'><h4 className='font-semibold'>Export</h4><p className='text-sm'>Free exports show ads; Pro exports use VIS engine.</p></div>) }
+export default function ExportPanel(){
+  return (
+    <div className="p-4 border rounded">
+      <h3 className="font-bold">Export</h3>
+      <p className="text-sm text-gray-300">Choose export options — free (ads) or pro.</p>
+    </div>
+  )
+}
