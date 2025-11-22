@@ -1,6 +1,10 @@
-import { useEffect } from 'react';
-export default function AdSlot({id='ad-slot', pro=false, style={}}){
-  useEffect(()=>{ if(pro) return; try{ if(window && window.ezoadx && typeof window.ezoadx.refresh==='function') window.ezoadx.refresh(); }catch(e){} },[pro]);
-  if(pro) return null;
-  return (<div id={id} style={{minHeight:90,display:'flex',alignItems:'center',justifyContent:'center',background:'#051520',borderRadius:8,...style}}><div style={{fontSize:12,opacity:0.7}}>Ad Slot — {id}</div></div>)
+export default function AdSlot({ id = 'ad-slot', style = {} }) {
+  // Ezoic or Ad provider will replace this div when configured in dashboard.
+  // Keep this placeholder server-side rendered for SEO and layout stability.
+  return (
+    <div id={id} style={style} className="w-full flex items-center justify-center bg-transparent text-gray-400">
+      {/* Ezoic placeholder — replace id in dashboard or insert ezoic script */}
+      <div className="text-sm">Advertisement</div>
+    </div>
+  )
 }
